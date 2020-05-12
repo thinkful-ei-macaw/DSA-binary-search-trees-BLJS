@@ -70,7 +70,7 @@ class BinarySearchTree {
   }
 
   remove(key) {
-    if (this.key == key) {
+    if (this.key === key) {
       if (this.left && this.right) {
         const successor = this.right._findMin();
         this.key = successor.key;
@@ -132,3 +132,5 @@ class BinarySearchTree {
     return this.left._findMin();
   }
 }
+
+module.exports = BinarySearchTree;
