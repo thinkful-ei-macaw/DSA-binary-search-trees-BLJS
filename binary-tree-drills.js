@@ -21,6 +21,25 @@ function main() {
 
 console.log(main());
 
+function checkIfIsBST(tree) {
+  if (!tree) {
+    return false;
+  }
+  if (tree.right && tree.right.key > tree.key) {
+    checkIfIsBST(tree.right);
+  } else {
+    return false;
+  }
+  if (tree.left && tree.left.key < tree.key) {
+    checkIfIsBST(tree.left);
+  } else {
+    return false;
+  }
+  return true;
+}
+
+console.log(checkIfIsBST(main()));
+
 function heightOfBiTree(tree) {
   if (!tree) {
     return 0;
@@ -44,4 +63,7 @@ function heightOfBiTree(tree) {
   }
 }
 
+/* • The left subtree of a node contains only nodes with keys less than the node’s key.
+• The right subtree of a node contains only nodes with keys greater than the node’s key.
+• Both the left and right subtrees must also be binary search trees. */
 console.log(heightOfBiTree(main()));
