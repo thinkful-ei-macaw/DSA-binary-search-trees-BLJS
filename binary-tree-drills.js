@@ -63,6 +63,19 @@ function heightOfBiTree(tree) {
   }
 }
 
+function findThirdNode(tree) {
+  const height = heightOfBiTree(tree);
+  if (height < 2) {
+    return null;
+  } else if (height < 3) {
+    if (tree.left && tree.right) {
+      return tree.left.value;
+    } else return null;
+  } else if (height > 3) {
+    return findThirdNode(tree.right);
+  } else return tree.key;
+}
+
 /* • The left subtree of a node contains only nodes with keys less than the node’s key.
 • The right subtree of a node contains only nodes with keys greater than the node’s key.
 • Both the left and right subtrees must also be binary search trees. */
